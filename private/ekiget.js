@@ -16,7 +16,7 @@ var opts = {
 request(opts, function (err, response, body) {
   var result = JSON.parse(body);
   var rawStations = result.response.station;
-  var filename = "ekimei.json";
+  var filename = "ekimei.txt";
   for (var i in rawStations) {
     var s = rawStations[i];
     console.log(i + ': ' + s.name + ' (' + s.x + ',' + s.y + ')');
