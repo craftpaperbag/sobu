@@ -1,14 +1,14 @@
 <head>
-  <title>sobu</title>
+  <title>そうぶせん</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  {{>station}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="station">
+  <div class="station-container">
+    <h1>{{kanji}}</h1>
+    <p>{{hiragana}}</p>
+  </div>
 </template>
