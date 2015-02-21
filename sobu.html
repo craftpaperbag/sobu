@@ -5,12 +5,23 @@
 
 <body>
   {{>station}}
+  {{>help}}
 </body>
+
+<template name="help">
+  <button class="help" id="help">？</button>
+  <div class="help-container">
+    <div class="box">
+      <h3>sobu</h3>
+      <p>sobu は、あなたがJR総武線のどの駅の近くにいるか表示します。</p>
+    </div>
+  </div>
+</template>
 
 <template name="station">
   <div class="station-container">
-    <h1>{{kanji}}</h1>
-    <p>{{hiragana}}</p>
+    <p class="kanji">{{kanji}}</p>
+    <p class="hiragana">{{hiragana}}</p>
     <!-- TODO: 現在地から取得 -->
     <!-- <button id="change">ランダム</button> -->
   </div>

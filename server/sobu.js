@@ -46,22 +46,24 @@ Meteor.methods({
     var cursor = Stations.find({});
     cursor.forEach(function (s) {
       // TODO: もっといい方法
+      /*
       console.log('x: ' + x);
       console.log('s.x: ' + s.x);
       console.log('y: ' + y);
       console.log('s.y: ' + s.y);
+      */
       var distancePow = Math.pow(x - Number(s.x), 2) + Math.pow(y - Number(s.y), 2);
-      console.log('target: ' + s.number + ' ' + s.kanji);
-      console.log('target: ' + distancePow);
-      console.log(                  nearestDistancePow + '>' + distancePow);
+      //console.log('target: ' + s.number + ' ' + s.kanji);
+      //console.log('target: ' + distancePow);
+      //console.log(                  nearestDistancePow + '>' + distancePow);
       if ( nearest === undefined || nearestDistancePow    >    distancePow) {
-        console.log('*****************************nearer!: ' + s.kanji);
+        //console.log('*****************************nearer!: ' + s.kanji);
         nearestDistancePow = distancePow;
         nearest = s;
       }
-      console.log('nearest_kanji: ' + nearest.kanji);
+      //console.log('nearest_kanji: ' + nearest.kanji);
     });
-    console.log('<result> nearest-kanji: ' + nearest.kanji);
+    //console.log('<result> nearest-kanji: ' + nearest.kanji);
     return nearest;
   },
 });

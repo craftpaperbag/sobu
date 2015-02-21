@@ -3,12 +3,14 @@
 /* --------------------------------------
  * global & UIs
  */
+
 html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   position: relative;
+  font-family: sans-serif;
 }
 
 html {
@@ -21,21 +23,71 @@ html {
  */
 
 .station-container {
+  z-index: 5;
   width: 100%;
   padding: auto 0;
   position: absolute;
   top: 30%;
   text-align: center;}
 
-  .station-container h1 {
+  .station-container p.kanji {
+    position: relative;
+    z-index: 5;
     margin: 0;
     padding: 0;
-    font-size: 64px;
+    font-size: 60px;
     font-weight: lighter;
   }
 
-  .station-container p {
+  .station-container p.hiragana {
+    position: relative;
+    z-index: 5;
     margin-top: 0;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: lighter;
   }
+
+/* --------------------------------------
+ * help
+ */
+
+.help {
+  position: absolute;
+  z-index: 9;
+  right: 12px;
+  top: 12px;
+  font-size: 24px;
+  border: 0;
+  background: rgba(0,0,0,0);
+  color: white;
+}
+
+.help-container {
+  position: absolute;
+  z-index: 8;
+  top: 10%;
+  left: 10%;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s ease 0;
+  background: rgba(0,0,0,0.5);
+  height: 30%;
+  width: 40%;
+  min-height: 80%;
+  min-width: 80%;}
+.help-container.active {
+  transition: opacity 0.2s ease 0;
+  opacity: 1;}
+  .help-container .box {
+    padding: 5%;}
+    .help-container h3 {
+      text-align: center;
+    }
+    .help-container p {
+      color: rgba(255,255,255,0.6);
+      font-weight: lighter;
+    }
+
+/* --------------------------------------
+ * color switch
+ */

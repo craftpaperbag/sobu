@@ -41,7 +41,7 @@ Template.station.helpers({
     if ( s ) {
       return s.kanji; 
     } else {
-      return "調べています...";
+      return "...";
     }
   },
   hiragana: function () {
@@ -66,5 +66,30 @@ Template.station.events({
     Session.set('s', s);
     console.log(num);
     console.log(s);
+  },
+});
+
+function openHelp() {
+  $('.help-container').addClass('active');
+  $('#help').html('&times;');
+};
+
+function closeHelp() {
+  $('.help-container').removeClass('active');
+  $('#help').text('？');
+};
+
+Template.help.events({
+  "click .help-container": function () {
+    if ( $('.help-container').hasClass('active') ) {
+      closeHelp();
+    }
+  },
+  "click #help": function () {
+    if ( $('.help-container').hasClass('active') ) {
+      closeHelp();
+    } else {
+      openHelp();
+    }
   },
 });
