@@ -1,11 +1,21 @@
 
 Meteor.startup(function () {
-console.log('startup')
+  // Update next & prev station
+  Tracker.autorun(function () {
+    var s = Session.get('s');
+    if ( s ) {
+      Meteor.call('getNextStation', s, function (err, ns) {
+        Session.set('ns', ns);
+      });
+      Meteor.call('getPrevStation', s, function (err, ps) {
+        Session.set('ps', ps);
+      });
+    }
+  });
   if (navigator.geolocation) {
     //Geolocation APIを利用できる環境向けの処理
     navigator.geolocation.getCurrentPosition(
       function (pos) {
-        console.log(pos)
         var x = pos.coords.longitude;
         var y = pos.coords.latitude;
         Meteor.call('getNearStation', x, y, function (err, s){
@@ -13,7 +23,6 @@ console.log('startup')
             alert('エラー:駅名を取得できません');
             return;
           }
-          console.log(s);
           if ( s ) {
             Session.set('s', s);
           } else {
@@ -51,7 +60,27 @@ Template.station.helpers({
     } else {
       return "しらべています";
     }
-  }
+  },
+  nextStation: function () {
+    var ns = Session.get("ns");
+    if ( ns ) {
+      $('#next-station-exists').removeClass('no');
+      return ns.kanji;
+    } else {
+      $('#next-station-exists').addClass('no');
+      return '...';
+    }
+  },
+  prevStation: function () {
+    var ps = Session.get("ps");
+    if ( ps ) {
+      $('#prev-station-exists').removeClass('no');
+      return ps.kanji;
+    } else {
+      $('#prev-station-exists').addClass('no');
+      return '...';
+    }
+  },
 });
 
 function randomEkiNum() {

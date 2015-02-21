@@ -93,6 +93,38 @@ a {
       font-weight: lighter;
     }
 
+.next-station {
+  width: 80%;
+  margin: 0 auto;
+  padding: 12px 0 0 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 18px;}
+  .next-station .exists.no {
+    opacity: 0;
+  }
+  .next-station p {
+    margin: 0;
+    padding: 0;
+  }
+
+.prev-station {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  margin: 0 0 0 10%;
+  padding: 0 0 12px 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 18px;}
+  .prev-station .exists.no {
+    opacity: 0;
+  }
+  .prev-station p {
+    margin: 0;
+    padding: 0;
+  }
+
 /* --------------------------------------
  * color switch
  */
