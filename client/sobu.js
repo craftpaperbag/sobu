@@ -1,5 +1,37 @@
 
 Meteor.startup(function () {
+console.log('startup')
+  if (navigator.geolocation) {
+    //Geolocation APIを利用できる環境向けの処理
+    navigator.geolocation.getCurrentPosition(
+      function (pos) {
+        console.log(pos)
+        var x = pos.coords.longitude;
+        var y = pos.coords.latitude;
+        Meteor.call('getNearStation', x, y, function (err, s){
+          if ( err ) {
+            alert('エラー:駅名を取得できません');
+            return;
+          }
+          console.log(s);
+          if ( s ) {
+            Session.set('s', s);
+          } else {
+            console.log('error: nearest station not found');
+          }
+
+
+        });
+      },
+      function (err) {
+        alert('エラー:位置情報を取得できません');
+      }
+
+    );
+  } else {
+    //Geolocation APIを利用できない環境向けの処理
+    alert('位置情報を取得できません。');
+  }
 });
 
 
@@ -9,7 +41,7 @@ Template.station.helpers({
     if ( s ) {
       return s.kanji; 
     } else {
-      return "駅名";
+      return "調べています...";
     }
   },
   hiragana: function () {
@@ -17,7 +49,7 @@ Template.station.helpers({
     if ( s ) {
       return s.hiragana;
     } else {
-      return "ぼたん　を　おしてください";
+      return "位置情報利用を許可してください";
     }
   }
 });
