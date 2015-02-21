@@ -49,7 +49,7 @@ Template.station.helpers({
     if ( s ) {
       return s.hiragana;
     } else {
-      return "位置情報利用を許可してください";
+      return "しらべています";
     }
   }
 });
