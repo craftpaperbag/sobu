@@ -51,7 +51,15 @@ Template.station.helpers({
     } else {
       return "しらべています";
     }
-  }
+  },
+  nextStation: function () {
+    var ns = {kanji: "三鷹"};
+    return ns.kanji;
+  },
+  prevStation: function () {
+    var ps = {kanji: "千葉"};
+    return ps.kanji;
+  },
 });
 
 function randomEkiNum() {

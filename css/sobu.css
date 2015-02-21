@@ -93,6 +93,26 @@ a {
       font-weight: lighter;
     }
 
+.next-station {
+  width: 80%;
+  margin: 0 auto;
+  padding: 12px 0 0 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 18px;
+}
+
+.prev-station {
+  position: absolute;
+  bottom: 0;
+  width: 80%;
+  margin: 0 0 0 10%;
+  padding: 0 0 12px 0;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 18px;
+}
+
 /* --------------------------------------
  * color switch
  */
