@@ -64,16 +64,20 @@ Template.station.helpers({
   nextStation: function () {
     var ns = Session.get("ns");
     if ( ns ) {
-      return ns.kanji + "\n↑";
+      $('#next-station-exists').removeClass('no');
+      return ns.kanji;
     } else {
+      $('#next-station-exists').addClass('no');
       return '...';
     }
   },
   prevStation: function () {
     var ps = Session.get("ps");
     if ( ps ) {
-      return "↓\n" + ps.kanji;
+      $('#prev-station-exists').removeClass('no');
+      return ps.kanji;
     } else {
+      $('#prev-station-exists').addClass('no');
       return '...';
     }
   },
