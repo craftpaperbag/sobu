@@ -79,7 +79,18 @@ function closeHelp() {
   $('#help').text('？');
 };
 
+function toggleColor() {
+  var $switcher = $('#color-switcher');
+  $('html').css('background', $switcher.css('background'));
+  if ( $switcher.hasClass('dark') ) {
+    $switcher.removeClass('dark');
+  } else {
+    $switcher.addClass('dark');
+  }
+};
+
 Template.help.events({
+  // TODO use ID in js's selector
   "click .help-container": function () {
     if ( $('.help-container').hasClass('active') ) {
       closeHelp();
@@ -92,4 +103,7 @@ Template.help.events({
       openHelp();
     }
   },
+  "click #color-switcher": function () {
+    toggleColor();
+  }
 });

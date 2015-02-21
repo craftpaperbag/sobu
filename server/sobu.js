@@ -36,7 +36,7 @@ if ( ! Stations.findOne() ) {
 
 Meteor.methods({
   getNearStation: function (x, y) {
-    console.log('getNearStation called');
+   // console.log('getNearStation called');
     /*
     console.log('x: ' + x);
     console.log('y: ' + y);
