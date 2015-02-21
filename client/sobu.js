@@ -59,6 +59,10 @@ function randomEkiNum() {
   return num;
 }
 
+//
+// XXX: for debug.
+//      It needs 'autopublish' & 'insecure'.
+//
 Template.station.events({
   "click #change": function () {
     var num = randomEkiNum();
