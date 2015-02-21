@@ -21,7 +21,7 @@ if ( ! Stations.findOne() ) {
     }
     var s = {
       number: Number(tabs[0]),
-      name: tabs[1],
+      kanji: tabs[1],
       x: Number(tabs[2]),
       y: Number(tabs[3]),
       hiragana: tabs[4],
@@ -33,3 +33,8 @@ if ( ! Stations.findOne() ) {
   var length = Stations.find().count();
   console.log("Stations length now " + length);
 }
+
+
+Meteor.startup(function () {
+
+});
