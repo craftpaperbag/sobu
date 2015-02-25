@@ -48,7 +48,7 @@ a {
     position: relative;
     z-index: 5;
     margin-top: 0;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: lighter;
   }
 
@@ -64,29 +64,32 @@ a {
   font-size: 24px;
   border: 0;
   background: rgba(0,0,0,0);
-  color: white;
+  color: #fff;
 }
 
 .help-container {
   position: absolute;
-  z-index: 8;
+  z-index: 1;
   top: 10%;
   left: 10%;
   border-radius: 5px;
   opacity: 0;
-  transition: opacity 0.2s ease 0;
+  transition: opacity 0.3s ease 0;
   background: rgba(0,0,0,0.7);
   height: 30%;
   width: 40%;
   min-height: 80%;
-  min-width: 80%;}
+  min-width: 80%;
+}
 .help-container.active {
+  z-index: 8;
   transition: opacity 0.2s ease 0;
   opacity: 1;}
   .help-container .box {
     padding: 5%;}
     .help-container h3 {
       text-align: center;
+      font-size: 24px;
     }
     .help-container p {
       color: rgba(255,255,255,0.6);
