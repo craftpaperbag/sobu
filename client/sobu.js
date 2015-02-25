@@ -103,12 +103,12 @@ Template.station.events({
 });
 
 function openHelp() {
-  $('.help-container').addClass('active');
+  $('#help-container').addClass('active');
   $('#help').html('&times;');
 };
 
 function closeHelp() {
-  $('.help-container').removeClass('active');
+  $('#help-container').removeClass('active');
   $('#help').text('？');
 };
 
@@ -123,14 +123,13 @@ function toggleColor() {
 };
 
 Template.help.events({
-  // TODO use ID in js's selector
-  "click .help-container": function () {
-    if ( $('.help-container').hasClass('active') ) {
+  "click #help-container": function () {
+    if ( $('#help-container').hasClass('active') ) {
       closeHelp();
     }
   },
   "click #help": function () {
-    if ( $('.help-container').hasClass('active') ) {
+    if ( $('#help-container').hasClass('active') ) {
       closeHelp();
     } else {
       openHelp();
